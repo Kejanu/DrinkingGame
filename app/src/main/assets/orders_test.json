@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "text": "{name0} macht nix, während {name1} {n0g0} dreckige Worte ins Ohr flüstert",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": [],
+    "needsGenderCheck": true
+  },
+  {
+    "id": 2,
+    "text": "{name0} macht nix, während {name1} {seine0} Haare flechtet",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": [],
+    "needsGenderCheck": true
+  }
+]

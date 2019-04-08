@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "requiredNames": 0,
+    "text": "Schnick Schnack Schnuck mit der Person rechts von einem. Best of One. Verlierer trinken jeweils 2."
+  },
+  {
+    "id": 2,
+    "requiredNames": 1,
+    "text": "Kategorie-Spiel. Getränke-Hersteller. Rechtsherum. {name0} beginnt. Wer etwas wiederholt oder doppelt sagt trinkt 3"
+  },
+  {
+    "id": 4,
+    "requiredNames": 0,
+    "text": "Entscheidet: Was ist schlimmer? Geheimratsecken oder Übergewicht? Die Verlierer trinken 2"
+  },
+  {
+    "id": 6,
+    "requiredNames": 0,
+    "text": "Entscheidet: Was ist besser? Meister in Karate oder in Kickboxen? Die Verlierer trinken 3"
+  },
+  {
+    "id": 7,
+    "requiredNames": 0,
+    "text": "Entscheidet: An die Schwanzträger der Gruppe. Lieber einen Schwanz der zu groß für Sex ist (dippen geht auch nicht) oder lieber einen der zu klein für Sex ist? Die Verlierer trinken 2"
+  },
+  {
+    "id": 8,
+    "requiredNames": 1,
+    "text": "Einmal im Kreis rechtsherum: Jeder trinkt so viele Schlucke, wie er heute schon pissen war. {name0} beginnt"
+  },
+  {
+    "id": 9,
+    "requiredNames": 0,
+    "text": "Entscheidet: Lieber 30km laufen oder 10km Schwimmen? Die Verlierer trinken 2"
+  },
+  {
+    "id": 10,
+    "requiredNames": 1,
+    "text": "Eine Runde ich \"Ich packe meinen Koffer\" rechtsherum. {name0} beginnt. Solange bis einer einen Fehler macht, diese Person darf dann 3 trinken"
+  },
+  {
+    "id": 11,
+    "requiredNames": 1,
+    "text": "Entscheidet: Wenn ihr 1kg Fleisch von {name0} essen müsstet, dann lieber vom Ober- oder Unterköper? Die Verlierer trinken 3"
+  },
+  {
+    "id": 12,
+    "requiredNames": 1,
+    "text": "Nennt Figuren aus dem König der Löwen. {name0} beginnt. Wem nichts mehr einfällt oder wer etwas wiederholt, trinkt 2"
+  },
+  {
+    "id": 13,
+    "requiredNames": 1,
+    "text": "Spielentwickler links herum. {name0} beginnt. Wem nichts mehr einfällt oder wer etwas wiederholt, trinkt 2"
+  }
+]

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222222">
+
+    <TextView
+        android:id="@+id/tw_popup_jokers_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tw_popup_jokers_header"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/ll_popup_scrollview_wrapper"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_popup_scrollview_wrapper"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="1.0"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tw_popup_jokers_header">
+
+        <!--Display Names here-->
+        <ScrollView
+            android:id="@+id/sw_popup_jokers_names"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#696969"
+            android:layout_weight="0.75">
+
+            <LinearLayout
+                android:id="@+id/ll_popup_jokers_names"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--Generated Names come here-->
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!--Display the jokers for specific person here-->
+        <ScrollView
+            android:id="@+id/sw_popup_jokers_jokers"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#696969"
+            android:layout_weight="0.25">
+
+            <LinearLayout
+                android:id="@+id/ll_popup_jokers_jokers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--Jokers for each person get outputted here-->
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

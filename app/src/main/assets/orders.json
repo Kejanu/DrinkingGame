@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "text": "{name0} trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 2,
+    "text": "{name0} verteilt 2",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 3,
+    "text": "Trink 3 Schlucke, wenn du es nicht schaffst deinen großen Zeh zu lutschen",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 4,
+    "text": "Alle Spieler trinken so viele Schlucke, wie Lehr/Studienjahre nach ihrem Schulabschluss",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 5,
+    "text": "{name0} mags von hinten und hat deshalb Arschschmerzen. {name0} muss so lange stehen, bis dein Name wieder erwähnt wird oder trink 3",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 6,
+    "text": "{name0} muss den Hosenstall von {name1} aufmachen. Wenn eine Partei verweigert, 3 trinken",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  },
+  {
+    "id": 7,
+    "text": "Welcher Spieler hat die größte Münze bei sich? (Fortsetzung folgt...)",
+    "multiOrder": true,
+    "requiredNames": 0,
+    "secondTextArray": ["Der Person, die die größte Münze hat kann sie entweder jemandem geben, der 7 trinkt, oder sie behalten und selbst 4 trinken"]
+  },
+  {
+    "id": 8,
+    "text": "An alle Männer: Trink 3, wenn du schon mal deinen Penis gemessen hast",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 9,
+    "text": "Alle, die 3 einzelne Cent-Stücke bei sich tragen dürfen 2 verteilen (müssen keine unterschiedlichen Münzen sein)",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 10,
+    "text": "Trink 3, falls du schon mal 3 Tage ungeduscht überlebt hast. Zeit als Baby zählt nicht",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 11,
+    "text": "Alle Singles entscheiden sich für eine Person, die vergeben ist. Diese Person trinkt 4",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 12,
+    "text": "{name0} entscheidet, wer von {name1} und {name2} schlauer ist",
+    "multiOrder": true,
+    "requiredNames": 3,
+    "secondTextArray": [
+      "Albert Einstein trinkt 2.",
+      "Das dumme Nüsschen trinkt 3."
+    ]
+  },
+  {
+    "id": 13,
+    "text": "Entscheidet, wer der Größte unter euch ist",
+    "multiOrder": true,
+    "requiredNames": 0,
+    "secondTextArray": [
+      "Der Größte trinkt 2.",
+      "Der Größte darf 2 verteilen."
+    ]
+  },
+  {
+    "id": 14,
+    "text": "Entscheidet, wer von Euch der Workaholic ist",
+    "multiOrder": true,
+    "requiredNames": 0,
+    "secondTextArray": [
+      "Der Workaholic trinkt 3. Entspann dich mal",
+      "Der Workaholic verteilt 3. Lass die anderen auch mal arbeiten",
+      "Jebaited! Der Faulste unter Euch trinkt 3"
+    ]
+  },
+  {
+    "id": 15,
+    "text": "{name0} trinkt entweder 2 oder 5 und darf auch so viele verteilen. Freie Wahl.",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 16,
+    "text": "Alle Rothaarigen dürfen zurückschlagen. Eine Person auswählen. Diese trinkt 5",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 17,
+    "text": "Alle Spieler mit blonden Haaren hoch die Gläser. Anstoßen und 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 18,
+    "text": "Alle männlichen Mitspieler 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 18,
+    "text": "Alle weiblichen Mitspieler 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 19,
+    "text": "Alle die, die ihre Nase mit der Zunge berühren können dürfen 2 verteilen",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 20,
+    "text": "Alle mit schwarzen Socken 2 trinken",
+    "multiOrder": true,
+    "requiredNames": 0,
+    "secondTextArray": [
+      "Jetzt die anderen. Jeder mit einer anderen Sockenfarbe als schwarz 3 trinken"
+    ]
+  },
+  {
+    "id": 21,
+    "text": "Alle, die einen Wäscheberg in ihrem Zimmer rumliegen haben 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 22,
+    "text": "{name0} entscheide: Wer von {name1} und {name2} hat das grässlichste Lächeln? Der Joker trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 3,
+    "secondTextArray": []
+  },
+  {
+    "id": 23,
+    "text": "{name0} trink so viele Schlucke, wie du \"heute\" schon Gläser geleert hast (Rettet dich die Uhr?)",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 24,
+    "text": "Trink 3 Schlucke, wenn du schon einmal im Wasser Sex hattest. Dusche zählt nicht",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 25,
+    "text": "{name0} wenn du schon mal Alkohol direkt nach dem Aufstehen getrunken hast, verteil 2. Ansonsten trink sie selbst",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 26,
+    "text": "{name0} verteil so viele Schlucke, wie deine (Handy)uhr anzeigt. 18:24 => 1, 8, 2 und 4. Jeweils an andere Personen.",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 27,
+    "text": "{name0} entscheide: Wer hat deiner Meinung nach die giftigsten Gase {name1} oder {name2}? Smogon trinkt 3",
+    "multiOrder": false,
+    "requiredNames": 3,
+    "secondTextArray": []
+  },
+  {
+    "id": 28,
+    "text": "Jeder trinkt so viele Schlucke, wie die Anzahl der Personen hier, mit denen er/sie schlafen würde. Es wird keine Unterhaltung hierüber geführt",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 29,
+    "text": "{name0} trink für jedes E in deinem Vornamen einen und verteil für jedes A einen",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 30,
+    "text": "Der Liliputaner der Gruppe trinkt 3",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 31,
+    "text": "Der Speckballon der Gruppe trinkt 3",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 32,
+    "text": "Der mit den wenigstens Haaren trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 33,
+    "text": "Alle Leute mit Gel/Wachs in den Haaren 3 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 34,
+    "text": "Die Person mit der größten Landebahn trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 35,
+    "text": "An alle, die in den letzen 2 Wochen nichts getrunken haben. 3 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 36,
+    "text": "{name0} riecht an {name1}'s Achsel. Bei Verweigerung 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  },
+  {
+    "id": 37,
+    "text": "Der/Die erste der sein Oberteil auszieht verteilt 4. Wenn es keiner macht, jeder 2 trinken",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 38,
+    "text": "{name0} trinkt 3, während {name1} {n0g0} dreckige Worte ins Ohr flüstert",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": [],
+    "needsGenderCheck": true
+  },
+  {
+    "id": 39,
+    "text": "{name0} trinkt das Glas von {name1} aus.",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  },
+  {
+    "id": 40,
+    "text": "Alle Leute größer als 180 und kleiner als 170 trinken 2",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 41,
+    "text": "Entscheidet: Wer ist der sportlichste unter euch? Sportacus trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 42,
+    "text": "{name0} trink das Glas von einem Spieler deiner Wahl aus",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 43,
+    "text": "Trink 2, wenn dir der Begriff \"2 Girls 1 Cup\"was sagt",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 43,
+    "text": "{name0} lass dich von {name1} ohrfeigen oder trink 4",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  },
+  {
+    "id": 44,
+    "text": "{name0} pinkel auf den Tisch oder trink 4",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 45,
+    "text": "Die Person, die zuletzt ein Bier geöffnet hat, trinkt 2",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 46,
+    "text": "Wie teuer waren eure Schuhe? {name0} beginnt",
+    "multiOrder": true,
+    "requiredNames": 1,
+    "secondTextArray": ["Alle deren Schuhe über 80 Euro gekostet haben, trinken 2"]
+  },
+  {
+    "id": 47,
+    "text": "{name0}, lass dich von {name1} in den Hintern kneifen oder trink 2",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  },
+  {
+    "id": 48,
+    "text": "Trink 3 Schlucke, wenn du für 200 Euro mit deinem linken Nachbarn schlafen würdest",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 49,
+    "text": "{name0}, du darst so viele Schlucke verteilen, wie du (Paten)tanten hast",
+    "multiOrder": false,
+    "requiredNames": 1,
+    "secondTextArray": []
+  },
+  {
+    "id": 50,
+    "text": "Alle, deren Penis kürzer als 24cm ist, trinken 3 Schlucke",
+    "multiOrder": false,
+    "requiredNames": 0,
+    "secondTextArray": []
+  },
+  {
+    "id": 51,
+    "text": "{name0}, trink dein Glas aus oder lass {name1} seinen Schwanz hineintauchen. Wenn sie eine Frau ist, dann... hmmm... einfach Glas austrinken",
+    "multiOrder": false,
+    "requiredNames": 2,
+    "secondTextArray": []
+  }
+]
