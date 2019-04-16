@@ -3,6 +3,7 @@ package de.kejanu.drinkinggame.Activities;
 import android.graphics.Color;
 import android.os.SystemClock;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,12 +65,13 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
     ArrayList<Rule> activeRules = new ArrayList<>();
 
+    private Button displayGameRulesBtn;
     private Button btnDisplayJokers;
     private Button btnDisplayRules;
 
     Task currentTask;
 
-    ConstraintLayout layout;
+    ConstraintLayout constraintLayout;
     TextView twDisplayTask;
     LinearLayout lljokers;
 
@@ -83,19 +85,24 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
         twDisplayTask = findViewById(R.id.tw_display_task);
         twDisplayTask.setTextColor(Color.parseColor("#000000"));
-        layout = findViewById(R.id.game_activity_layout);
-        this.scale = getResources().getDisplayMetrics().density;
+        constraintLayout = findViewById(R.id.game_activity_layout);
+        btnDisplayJokers = findViewById(R.id.btn_joker_ingame);
+        btnDisplayRules = findViewById(R.id.btn_rules_ingame);
+        scale = getResources().getDisplayMetrics().density;
+
+        if (!getIntent().getBooleanExtra(getResources().getString(R.string.jokers_checked), true)) {
+            btnDisplayJokers.setVisibility(View.INVISIBLE);
+        }
 
 
 //        new Butler(this).addToActiveRules(this.activeRules);
 
         // Buttons
-        this.btnDisplayJokers = findViewById(R.id.btn_joker_ingame);
-        this.btnDisplayRules = findViewById(R.id.btn_rules_ingame);
+
 
         createOnClickListenersForButtons();
 
-        this.pList = getIntent().getParcelableArrayListExtra(getResources().getString(R.string.personlist_with_jokers));
+        this.pList = getIntent().getParcelableArrayListExtra(getResources().getString(R.string.selected_person_list));
 
         //new Butler(this).logList(this.pList);
 
@@ -104,7 +111,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 //            return;
 //        }
 
-        if (!fillListsFromSourceTest("orders_test.json")) {
+        if (!fillListsFromSourceTest("games_test.json")) {
             this.twDisplayTask.setText(getResources().getString(R.string.error_reading_json));
             return;
         }
@@ -128,7 +135,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
     }
 
     private void setLayoutOnClickListener() {
-        this.layout.setOnClickListener(new View.OnClickListener() {
+        this.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (SystemClock.elapsedRealtime() - lastClickTime < 500){
@@ -178,7 +185,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         this.btnDisplayJokers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View popupView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_jokers_popup, layout, false);
+                View popupView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_jokers_popup, constraintLayout, false);
                 LinearLayout llNames = popupView.findViewById(R.id.ll_popup_jokers_names);
                 lljokers = popupView.findViewById(R.id.ll_popup_jokers_jokers);
 
@@ -198,7 +205,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                                 if (!j.isChecked())
                                     continue;
 
-                                final View generatedView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_jokers_with_checkbox, layout, false);
+                                final View generatedView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_jokers_with_checkbox, constraintLayout, false);
                                 final TextView tw = generatedView.findViewById(R.id.tw_joker_display_jokers);
                                 tw.setText(j.getText());
 
@@ -224,7 +231,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                 PopupWindow popupWindow = new PopupWindow(popupView, ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT, true);
                 popupWindow.setTouchable(true);
 
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+                popupWindow.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
             }
         });
 
@@ -239,7 +246,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                 }
 
                 LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = layoutInflater.inflate(R.layout.display_rules_popup, layout, false);
+                View popupView = layoutInflater.inflate(R.layout.display_rules_popup, constraintLayout, false);
 
                 LinearLayout llInPopup = popupView.findViewById(R.id.ll_popup_rules);
 
@@ -259,7 +266,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                 PopupWindow pw = new PopupWindow(popupView, ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT, true);
                 pw.setTouchable(true);
 
-                pw.showAtLocation(layout, Gravity.CENTER, 0, 0);
+                pw.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
 
             }
         });
@@ -368,11 +375,11 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         Gson gson = new Gson();
         Butler readJSONHelper = new Butler(this);
 
-        Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
-        this.orderList = gson.fromJson(readJSONHelper.loadJSONFromAsset(source[0]), orderListType);
-
-        if (this.orderList == null) {
-            return false;
+        for (String s : source) {
+            if (s.contains("game")) {
+                Type gameListType = new TypeToken<ArrayList<Game>>(){}.getType();
+                this.gameList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), gameListType);
+            }
         }
 
         return true;
@@ -402,7 +409,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
     private void endGame() {
         this.twDisplayTask.setText(getResources().getString(R.string.game_end));
-        this.layout.setBackgroundColor(Color.parseColor(orderBgColor));
+        this.constraintLayout.setBackgroundColor(Color.parseColor(orderBgColor));
     }
 
     private boolean checkRules() {
@@ -417,7 +424,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
             Rule activeRule = this.activeRules.get(i);
             activeRule.setLifeSpan(activeRule.getLifeSpan() - 1);
             if (activeRule.getLifeSpan() <= 0) {
-                this.layout.setBackgroundColor(Color.parseColor(ruleBgColor));
+                this.constraintLayout.setBackgroundColor(Color.parseColor(ruleBgColor));
                 displayNextText(activeRule.getEndText());
                 this.activeRules.remove(i);
                 return true;
@@ -433,7 +440,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         if (currentOrder.isMultiOrder()) {
             if (!currentIsMulti) {
                 this.currentIsMulti = true;
-                this.layout.setBackgroundColor(Color.parseColor(orderBgColor));
+                this.constraintLayout.setBackgroundColor(Color.parseColor(orderBgColor));
                 displayNextText(currentOrder.getText());
                 return true;
             }
@@ -447,7 +454,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         else {
             displayNextText(currentOrder.getText());
         }
-        this.layout.setBackgroundColor(Color.parseColor(orderBgColor));
+        this.constraintLayout.setBackgroundColor(Color.parseColor(orderBgColor));
         return false;
     }
 
@@ -455,15 +462,57 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         Rule currentRule = (Rule) currentTask;
         displayNextText(currentRule.getStartText());
 
-        this.layout.setBackgroundColor(Color.parseColor(ruleBgColor));
+        this.constraintLayout.setBackgroundColor(Color.parseColor(ruleBgColor));
         this.activeRules.add(currentRule);
     }
 
     private void executeGame(Task currentTask) {
-        Game currentGame = (Game) currentTask;
+        final Game currentGame = (Game) currentTask;
+        this.constraintLayout.setBackgroundColor(Color.parseColor(gameBgColor));
 
-        this.layout.setBackgroundColor(Color.parseColor(gameBgColor));
+        if (currentGame.getRulesText() != null) {
+            // Display Rules in Layout
+            displayGameRulesBtn = (Button) LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_game_rules_btn, constraintLayout, false);
+            displayGameRulesBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(getApplicationContext(), "Display Rules clicked", Toast.LENGTH_SHORT).show();
+                    displayGameRulesPopUp(currentGame.getRulesText());
+
+                }
+            });
+
+            constraintLayout.addView(displayGameRulesBtn);
+
+            // Give Button the correct constraints
+            ConstraintSet cs = new ConstraintSet();
+            cs.clone(constraintLayout);
+
+            // Constraint left to left
+            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
+            //Constraint right to right
+            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
+            // Constraint top to bottom of tw
+            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.TOP, twDisplayTask.getId(), ConstraintSet.BOTTOM, 0);
+            cs.applyTo(constraintLayout);
+
+            // Remove and readd or make invisible and visible
+        }
+
         displayNextText(currentGame.getText());
+    }
+
+    private void displayGameRulesPopUp(String rules) {
+        View inflatedView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.game_rules_popup, constraintLayout, false);
+        TextView tw = inflatedView.findViewById(R.id.tw_ingame_game_rules);
+        tw.setText(rules);
+
+        PopupWindow popupWindow = new PopupWindow(inflatedView, ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setTouchable(true);
+
+        popupWindow.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
+        popupWindow.dismiss();
+
     }
 
     private void runNextTask() {

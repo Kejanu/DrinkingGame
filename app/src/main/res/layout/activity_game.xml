@@ -26,7 +26,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/btn_joker_ingame_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_rules_ingame" />
 
     <Button
         android:id="@+id/btn_rules_ingame"
@@ -36,5 +36,6 @@
         android:layout_marginBottom="8dp"
         android:text="@string/btn_active_rules_ingame_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_joker_ingame" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

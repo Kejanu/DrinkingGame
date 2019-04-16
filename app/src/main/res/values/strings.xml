@@ -26,4 +26,7 @@
     <string name="alertdialog_joker_ja">Ja</string>
     <string name="alertdialog_joker_nein">Nein</string>
     <string name="activate_jokers_cb">Joker Aktivieren</string>
+    <string name="nsa_has_cards_available_cb">Spielkarten-Spiele</string>
+    <string name="jokers_checked">JOKERS_CHECKED</string>
+    <string name="btn_display_game_rules">Display Rules</string>
 </resources>

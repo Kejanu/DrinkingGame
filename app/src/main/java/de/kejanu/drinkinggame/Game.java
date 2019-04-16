@@ -5,14 +5,28 @@ public class Game extends Task {
     private static transient TaskType type = TaskType.GAME;
     private int id;
     private int requiredNames;
-    private String text;
-    private boolean needsGenderCheck;
 
-    public Game(int id, int requiredNames, String text, boolean needsGenderCheck) {
+    private boolean needsGenderCheck;
+    private boolean needsCards;
+
+    private String text;
+    private String rulesText;
+
+    public Game(int id, int requiredNames, String text, boolean needsGenderCheck, String rulesText, boolean needsCards) {
         this.id = id;
         this.requiredNames = requiredNames;
         this.text = text;
         this.needsGenderCheck = needsGenderCheck;
+        this.rulesText = rulesText;
+        this.needsCards = needsCards;
+    }
+
+    public String getRulesText() {
+        return rulesText;
+    }
+
+    public void setRulesText(String rulesText) {
+        this.rulesText = rulesText;
     }
 
     public TaskType getType() {
@@ -49,5 +63,13 @@ public class Game extends Task {
 
     public void setNeedsGenderCheck(boolean needsGenderCheck) {
         this.needsGenderCheck = needsGenderCheck;
+    }
+
+    public boolean isNeedsCards() {
+        return needsCards;
+    }
+
+    public void setNeedsCards(boolean needsCards) {
+        this.needsCards = needsCards;
     }
 }

@@ -1,0 +1,80 @@
+//    private Spinner createSpinner() {
+//        final Spinner sp = new Spinner(NameSelectActivity.this.getApplicationContext());
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_spinner,
+//                                                                             android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        sp.setAdapter(adapter);
+//        int id = View.generateViewId();
+//        sp.setId(id);
+//
+//        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                for (PersonWrapper pWrapper : personWrapperList) {
+//                    if (pWrapper.getSpinner().getId() == sp.getId()) {
+//                        Log.e("Spinner", pWrapper.getPerson().getName());
+//
+//                        pWrapper.getPerson().setGender(id == 0 ? Gender.MALE : Gender.FEMALE);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Log.e("Spinner", "Something is wrong");
+//            }
+//        });
+//
+//        return sp;
+//    }
+
+//    private EditText createEditText() {
+//        EditText editText = new EditText(NameSelectActivity.this.getApplicationContext());
+//
+//        editText.setId(View.generateViewId());
+//
+//
+//        LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//        lp.setMargins(0, 0, 0,(int) (10 * scale + 0.5f));
+//        editText.setLayoutParams(lp);
+//
+//        editText.getBackground().setColorFilter(Color.argb(255, randomColor.nextInt(256),
+//                randomColor.nextInt(256), randomColor.nextInt(256)), PorterDuff.Mode.SRC_ATOP);
+//
+//        editText.setTextColor(Color.parseColor("#000000"));
+//        editText.setHintTextColor(Color.parseColor("#808080"));
+//
+//        editText.setPaddingRelative((int) (5 * scale + 0.5f), 0, 0, (int) (10 * scale + 0.5f));
+//        return editText;
+//    }
+
+    private void displayPersonOnActivity(PersonWrapper pWrapper) {
+//        LinearLayout ll = new LinearLayout(NameSelectActivity.this.getApplicationContext());
+//        ll.setGravity(Gravity.CENTER);
+//        ll.addView(pWrapper.getEditText());
+//        ll.addView(pWrapper.getSpinner());
+//        layout.addView(ll);
+//    }
+
+
+ConstraintLayout constraintLayout;
+ConstraintSet constraintSet;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    constraintLayout = (ConstraintLayout) findViewById(R.id.activity_main_constraint_layout);
+
+    Button button = new Button(this);
+    button.setText("Hello");
+    constraintLayout.addView(button);
+
+    constraintSet = new ConstraintSet();
+    constraintSet.clone(constraintLayout);
+
+    constraintSet.connect(button.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
+    constraintSet.constrainDefaultHeight(button.getId(), 200);
+    constraintSet.applyTo(constraintLayout);
+
+}
