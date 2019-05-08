@@ -3,42 +3,42 @@
     "id": 1,
     "lifeSpan": -1,
     "requiredNames": 0,
-    "startText": "Vor dem Trinken eigene Achsel riechen.",
+    "text": "Vor dem Trinken eigene Achsel riechen.",
     "endText": "Jeder darf mit der Selbstvergasung aufhören."
   },
   {
     "id": 2,
     "lifeSpan": -1,
     "requiredNames": 0,
-    "startText": "Jede Person muss vor dem trinken den Namen der Person rechts sagen.",
+    "text": "Jede Person muss vor dem trinken den Namen der Person rechts sagen.",
     "endText": "Man darf aufhören den Namen der Person rechts zu sagen."
   },
   {
     "id": 3,
     "lifeSpan": -1,
     "requiredNames": 0,
-    "startText": "Bee Movie lebe hoch! Jeder Satz wird absofort mit \"BZZ..\" beendet. Bei Nichteinhaltung einen trinken",
+    "text": "Bee Movie lebe hoch! Jeder Satz wird absofort mit \"BZZ..\" beendet. Bei Nichteinhaltung einen trinken",
     "endText": "Bee Movie ist mittlerweile zu alt. \"Es ist kein BZZ.. mehr nötig\""
   },
   {
     "id": 4,
     "lifeSpan": -1,
     "requiredNames": 1,
-    "startText": "{name0}, dein Finger ist vergiftet. Jedes mal, wenn du es schaffst ihn in die Arschritze eines Spielers zu stecken, ohne dass er es merkt, muss dieser 2 Schlucke trinken",
+    "text": "{name0}, dein Finger ist vergiftet. Jedes mal, wenn du es schaffst ihn in die Arschritze eines Spielers zu stecken, ohne dass er es merkt, muss dieser 2 Schlucke trinken",
     "endText": "{name0}'s Finger ist nicht mehr vergiftet"
   },
   {
     "id": 5,
     "lifeSpan": -1,
     "requiredNames": 2,
-    "startText": "Ab jetzt muss {name0} einen Schluck trinken, wenn {name1} spricht und andersherum",
+    "text": "Ab jetzt muss {name0} einen Schluck trinken, wenn {name1} spricht und andersherum",
     "endText": "{name0} und {name1} müssen nichts mehr trinken, wenn der andere etwas sagt"
   },
   {
     "id": 6,
     "lifeSpan": -1,
     "requiredNames": 1,
-    "startText": "Rüpel-Spiel: {name0} zeige einem Spieler den Mittelfinger. Dieser muss 2 trinken und wird zum neuen Rüpel und so weiter...",
+    "text": "Rüpel-Spiel: {name0} zeige einem Spieler den Mittelfinger. Dieser muss 2 trinken und wird zum neuen Rüpel und so weiter...",
     "endText": "Wer momentan der Rüpel ist trinkt 3. Es gibt jetzt keinen Rüpel mehr"
   }
 ]

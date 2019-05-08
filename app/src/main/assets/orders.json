@@ -382,5 +382,500 @@
     "multiOrder": false,
     "requiredNames": 2,
     "secondTextArray": []
+  },
+  {
+    "id": 52,
+    "text": "{name0} du hast 5 Minuten, um dein Glas auszutrinken",
+    "requiredNames": 1
+  },
+  {
+    "id": 53,
+    "text": "{name0}, erzähl etwas, was du noch NIE gemacht hast und die, die es gemacht haben, müssen 3 Schlucke trinken",
+    "requiredNames": 2
+  },
+  {
+    "id": 54,
+    "text": "{name0} hat die Ehre 2 Schlucke zu verteilen",
+    "requiredNames": 1
+  },
+  {
+    "id": 55,
+    "text": "{name0}, entweder du sagst, in welchem Monat {name1} geboren wurde oder du trinkst 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 56,
+    "text": "{name0} zieht ein Kleidungsstück aus oder trinkt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 57,
+    "text": "{name0} leckt den Unterarm des/der linken Nachbarn/in oder trinkt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 58,
+    "text": "{name0} erzählt einen Witz oder trinkt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 59,
+    "text": "Lasst uns gemeinsam anstoßen! Jeder trinkt 2",
+    "requiredNames": 0
+  },
+  {
+    "id": 60,
+    "text": "{name0} trinkt 2 Schlucke aus dem Glas von {name1}",
+    "requiredNames": 2
+  },
+  {
+    "id": 61,
+    "text": "{name0}, wenn du {name1} ein bisschen kennst, dann gib {ihm0} einen Kuss oder trink 2 Schlucke",
+    "requiredNames": 2,
+    "needsGenderCheck": true
+  },
+  {
+    "id": 62,
+    "text": "{name0}, wenn du {name1} ein bisschen kennst, dann leck {ihm0} die Wange oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 63,
+    "text": "{name0}, entweder du gibst {name1} einen Kuss, oder {er0} trinkt 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 64,
+    "text": "{name0} antworte auf eine peinliche Frage von {name1}, oder sei ein Angsthase und trink dein Glas aus",
+    "requiredNames": 2
+  },
+  {
+    "id": 65,
+    "text": "{name0}, such einen Gegner zum Armdrücken aus, der Verlierer trinkt 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 66,
+    "text": "{name0} und {name1} müssen sich ohne zu blinzeln in die Augen sehen. Der Verlierer muss 2 Schlucke trinken",
+    "requiredNames": 2
+  },
+  {
+    "id": 67,
+    "text": "{name0} sagt, wie viele Schlucke {name1} trinken soll. Maximum: Glas leer machen",
+    "requiredNames": 2
+  },
+  {
+    "id": 68,
+    "text": "{name0}, gib 2 Schlucke an {name1} oder 2 Schlucke an {name2} ab",
+    "requiredNames": 3
+  },
+  {
+    "id": 69,
+    "text": "{name0} entscheidet: Entweder {name1} gibt 2 Schlucke ab, oder {name2} gibt 2 Schlucke ab",
+    "requiredNames": 3
+  },
+  {
+    "id": 70,
+    "text": "{name0}, die nächste Person, der du in die Augen siehst, muss 2 Schlucke trinken",
+    "requiredNames": 1
+  },
+  {
+    "id": 71,
+    "text": "Die Person, die zuerst zwei Kleidungsstücke ausgezogen hat, verteilt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 72,
+    "text": "Die Person, die es zuerst schafft seinen Ellenbogen zu lecken, gibt 20 Schlucke ab",
+    "requiredNames": 0
+  },
+  {
+    "id": 73,
+    "text": "{name0} und {name1} entscheiden zusammen, welche Person 2 Schlucke trinken muss",
+    "requiredNames": 2
+  },
+  {
+    "id": 74,
+    "text": "{name0}, zeig die letzten 5 Fotos, die du mit deinem Handy gemacht hast, oder trink 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 75,
+    "text": "{name0} lässt {name1} zwei Minuten freie Verfügung über {seinen0} Snapchat-Account oder trinkt {sein0} Glas aus",
+    "requiredNames": 2
+  },
+  {
+    "id": 76,
+    "text": "Duell zwischen {name0} und {name1}, der/diejenige mit den größten Händen trinkt 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 77,
+    "text": "Keine Arme, keine Schokolade, {name0} trinkt einen Schluck ohne Hände",
+    "requiredNames": 1
+  },
+  {
+    "id": 78,
+    "text": "{name0} erzählt eine peinliche Geschichte über eine/n Mitspieler/in oder trinkt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 79,
+    "text": "Alle Arme in die Höhe! Die letzte Person trinkt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 80,
+    "text": "{name0} trink so viele Schlucke, wie du willst. {name1} muss das Doppelte trinken",
+    "requiredNames": 2
+  },
+  {
+    "id": 81,
+    "text": "Wahrheit oder Pflicht, {name0} stellt eine Frage/Aufgabe an {name1}. {name2} entscheidet ob Wahrheit oder Pflicht",
+    "requiredNames": 3
+  },
+  {
+    "id": 82,
+    "text": "Alle, die ihre Nase mit ihrer Zunge berühren können, verteilen 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 83,
+    "text": "Die erste Person, die ein Gummi rausholt, verteilt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 84,
+    "text": "Die letzte Person, die ihre Füße vom Boden hebt, trinkt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 85,
+    "text": "{name0}, nenne ein Objekt (Gürtel, Nagellack, Socken...). Alle, die dieses Objekt tragen, trinken 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 86,
+    "text": "{name0} füllt das Glas von {name1} mit einem alkoholfreien Getränk auf. {name1} trinkt 5",
+    "requiredNames": 2
+  },
+  {
+    "id": 87,
+    "text": "{name0} und {name1}, trinkt mit gekreuzten Armen gemeinsam 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 88,
+    "text": "Alle geben nacheinander neuen Alkohol in ihr Glas, {name0} beginnt",
+    "requiredNames": 0
+  },
+  {
+    "id": 89,
+    "text": "Der Wolf geht um! Der Wolf berührt einen Spieler, der trinken muss. Dieser Spieler wird zum Wolf usw. {name0} ist der Wolf",
+    "requiredNames": 1
+  },
+  {
+    "id": 90,
+    "text": "Alle, die Zigaretten bei sich haben, trinken soviele Schlucke, wie sie Kippen haben. Maximum: 8",
+    "requiredNames": 0
+  },
+  {
+    "id": 91,
+    "text": "{name0}, zeig uns drei Tanzschritte, oder trink 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 92,
+    "text": "{name0}, sag, wie alt {name1} ist, oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 93,
+    "text": "{name0}, nenn das Sternzeichen von {name1} oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 94,
+    "text": "{name0}, schließ die Augen und sag, welche Augenfarbe {name1} hat, oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 95,
+    "text": "{name0}, schließ die Augen und sag, welche Farbe die Schuhe von {name1} haben, oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 96,
+    "text": "{name0}, du hast 3 Sekunden Zeit, um zu sagen, wie viele Personen genau sich im Raum befinden. Wenn du dich irrst, dann trinkst du 2",
+    "requiredNames": 1
+  },
+  {
+    "id": 97,
+    "text": "{name0}, nenn die Lieblingsfarbe von {name1} oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 98,
+    "text": "Der/diejenige, der/die zuerst lächelt, trint 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 99,
+    "text": "Alle Spieler/innen, die es nicht schaffen, den Boden - stehend mit durchgestreckten Beinen - mit ihren Händen zu berühren, trinken 2",
+    "requiredNames": 0
+  },
+  {
+    "id": 100,
+    "text": "Der/die Erste, der/die die Füße von {name0} berührt, verteilt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 101,
+    "text": "{name0}, wenn du es schaffst, 5 Minuten lang nichts zu sagen, darfst du entscheiden, wer sein Glas austrinken muss",
+    "requiredNames": 1
+  },
+  {
+    "id": 102,
+    "text": "{name0} muss eine Minute lang lächeln, und jedes Mal, wenn er/sie aufhört zu lächeln, 2 Schlucke trinken",
+    "requiredNames": 1
+  },
+  {
+    "id": 103,
+    "text": "{name0}, du musst 15 Sekunden lang einen Stepptanz aufführen oder 2 Schlucke trinken",
+    "requiredNames": 1
+  },
+  {
+    "id": 104,
+    "text": "Der erste Spieler, der ein Sprichwort sagt, verteilt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 105,
+    "text": "{name0}, macht eine/n andere/n Spieler/in nach. Wer zuerst herausfindet, wer es ist, verteilt 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 106,
+    "text": "{name0}, mach eine Aufgabe, die {name1} dir gibt. Wenn du dich weigerst, trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 107,
+    "text": "Die nächste Person, die trinken muss, verteilt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 108,
+    "text": "{name0} macht 6 richtige Kniebeugen und trinkt nach jeder einen Schluck",
+    "requiredNames": 1
+  },
+  {
+    "id": 109,
+    "text": "Alle Spieler/innen trinken so viele Schlucke, wie Lehr/Studienjahre nach ihrem Schulabschluss",
+    "requiredNames": 0
+  },
+  {
+    "id": 110,
+    "text": "{name0} verteilt so viele Schlucke, wie er/sie Geschwister hat",
+    "requiredNames": 1
+  },
+  {
+    "id": 111,
+    "text": "{name0} muss 2 Schlucke trinken, während {name1} {ihm1} Dinge ins Ohr flüstert",
+    "requiredNames": 2
+  },
+  {
+    "id": 112,
+    "text": "{name0}, imitiere 5 Sekunden lang eine Schlange oder trink 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 113,
+    "text": "{name0}, imitiere 5 Sekunden lang eine Schnecke oder trink 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 114,
+    "text": "{name0}, imitiere 5 Sekunden lang eine Schildkröte oder trink 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 115,
+    "text": "{name0}, imitiere 10 Sekunden lang eine Katze oder trink 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 116,
+    "text": "{name0}, imitiere 5 Sekunden lang einen alten Mann oder trink 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 117,
+    "text": "Mädels, ihr trinkt eure Körpchengröße in Schlucken (A = 1, B = 2, etc.)",
+    "requiredNames": 0
+  },
+  {
+    "id": 118,
+    "text": "{name0} schick an eine von {name1} ausgewählte Person nur die Worte 'ich liebe dich', oder trink 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 119,
+    "text": "Wenn die Uhr jetzt eine gerade Zeit anzeigt, trinken alle 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 120,
+    "text": "{name0} wählt das nächste Lied und das ist nicht verhandelbar",
+    "requiredNames": 1
+  },
+  {
+    "id": 121,
+    "text": "{name0} wählt das nächste Lied, und alle, die es feiern trinken 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 122,
+    "text": "{name0} wählt das nächste Lied, und alle, die es beschissen finden trinken 2 Schlucke!",
+    "requiredNames": 1
+  },
+  {
+    "id": 123,
+    "text": "Die Mädels trinken so viele Schlucke, wie heiße Kerle hier mitspielen",
+    "requiredNames": 0
+  },
+  {
+    "id": 124,
+    "text": "Die Jungs trinken so viele Schlucke, wie Granaten hier mitspielen",
+    "requiredNames": 0
+  },
+  {
+    "id": 125,
+    "text": "Die Person, auf deren Telefon ihr spielt, verteilt 2 Schlucke",
+    "requiredNames": 0
+  },
+  {
+    "id": 126,
+    "text": "{name0}, verteil 2 Schlucke an die Person, die du am intelligentesten findest. Eigenlob zählt nicht",
+    "requiredNames": 1
+  },
+  {
+    "id": 127,
+    "text": "{name0}, verteil 2 Schlucke an die Person, die du am hübschsten findest",
+    "requiredNames": 1
+  },
+  {
+    "id": 128,
+    "text": "{name0}, verteil 2 Schlucke an die Person, die in deinen Augen den geilsten Körper hat",
+    "requiredNames": 1
+  },
+  {
+    "id": 129,
+    "text": "{name0} und {name1} spielen Schere-Stein-Papier! Der/die Gewinner/in trinkt 2 Schlucke",
+    "requiredNames": 2
+  },
+  {
+    "id": 130,
+    "text": "Wählt alle gemeinsam die Person, die am meisten verträgt (Hulk), er/sie trinkt 2 Schlucke!",
+    "secondTextArray" : ["Chuck Norris reicht das nicht, der Hulk trinkt 2 Schlucke zusätzlich!", "Hulk rächt sich und verteilt 2 Schlucke"],
+    "requiredNames": 0,
+    "multiOrder" : true
+  },
+  {
+    "id": 131,
+    "text": "{name0}, mach einen Handstand oder trink 2 Schlucke",
+    "requiredNames": 1
+  },
+  {
+    "id": 132,
+    "text": "{name0}, schlage 3 Vornamen vor. Wenn einer davon der Zweitname eines Spielers ist, verteil 2 Schlucke, ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 133,
+    "text": "{name0}, wenn du alle Vornamen von {name1} kennst, trinkt dieser Spieler 2 {er1}, ansonsten trink sie selbst",
+    "requiredNames": 2,
+    "needGenderCheck" : true
+  },
+  {
+    "id": 134,
+    "text": "{name0}, verteile so viele Schlucke, wie du Nachnamen der anwesenden Spieler nennen kannst",
+    "requiredNames": 1
+  },
+  {
+    "id": 135,
+    "text": "Gebt euer Glas an euren rechten Nachbarn weiter. {name0}, trinkt 2 Schlucke, bevor {er} es weitergibst",
+    "requiredNames": 1,
+    "needsGenderCheck" : true
+  },
+  {
+    "id": 136,
+    "text": "{name0}, wähle, wer 2 Schlucke aus deinem Glas trinkt",
+    "requiredNames": 1
+  },
+  {
+    "id": 137,
+    "text": "{name0}, wähle, wer 2 Schlucke aus dem Glas von {name0} trinkt",
+    "requiredNames": 2
+  },
+  {
+    "id": 138,
+    "text": "{name0}, du enscheidest, wem von {name1} und {name2} du 2 Schlucke zu trinken gibst (du hälst das Glas)",
+    "requiredNames": 3
+  },
+  {
+    "id": 139,
+    "text": "{name0}, entweder du verteilst 3 Schlucke an eine Person deiner Wahl, oder {name1} trinkt 4",
+    "requiredNames": 2
+  },
+  {
+    "id": 140,
+    "text": "Alle Männer mit Glatze und Frauen mit kurzen Haaren dürfen sich revanchieren. Entscheidet, wer 3 Schlucke trinken muss",
+    "requiredNames": 0
+  },
+  {
+    "id": 141,
+    "text": "{name0}, verteile so viele Schlucke, wie du schwarze Kleidungsstücke trägst (Jede Socke zählt!)",
+    "requiredNames": 1
+  },
+  {
+    "id": 142,
+    "text": "{name0}, verteile so viele Schlucke, wie du weiße Kleidungsstücke trägst (Jede Socke zählt!)",
+    "requiredNames": 1
+  },
+  {
+    "id": 143,
+    "text": "{name1}, verteile so viele Schlucke, wie du rote Kleidungsstücke trägst, trink 2 Schlucke, wenn du keine trägst",
+    "requiredNames": 0
+  },
+  {
+    "id": 144,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der brauner ist als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 145,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der heller ist als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 146,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der größer ist als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 147,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der kleiner ist als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 148,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der weniger getrunken hat als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
+  },
+  {
+    "id": 149,
+    "text": "{name0}, verteil 2 Schlucke an einen Spieler, der mehr getrunken als du, wenn möglich... Ansonsten trink sie selbst",
+    "requiredNames": 1
   }
 ]

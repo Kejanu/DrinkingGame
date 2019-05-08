@@ -20,7 +20,7 @@ public class Butler {
     }
 
     public void addToActiveRules(ArrayList<Rule> rList) {
-        rList.add(new Rule(1, 4, 2, "Magnus hat kleine Eier.", ""));
+        //rList.add(new Rule(1, 4, 2, "Magnus hat kleine Eier.", ""));
 //        rList.add(new Rule(1, 4, 2, "Magnus hat kleine Eier und darf deshalb jedesmal sich einscheißen.Magnus hat kleine Eier und darf deshalb jedesmal sich einscheißen.", ""));
 //        rList.add(new Rule(1, 4, 2, "Magnus hat kleine Eier und darf deshalb jedesmal sich einscheißen.Magnus hat kleine Eier und darf deshalb jedesmal sich einscheißen.", ""));
     }

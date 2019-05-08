@@ -78,3 +78,28 @@ protected void onCreate(Bundle savedInstanceState) {
     constraintSet.applyTo(constraintLayout);
 
 }
+
+
+//            displayGameRulesBtn = (Button) LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_game_rules_btn, constraintLayout, false);
+//            displayGameRulesBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //Toast.makeText(getApplicationContext(), "Display Rules clicked", Toast.LENGTH_SHORT).show();
+//                    displayGameRulesPopUp(currentGame.getRulesText());
+//
+//                }
+//            });
+
+//            constraintLayout.addView(displayGameRulesBtn);
+
+//            // Give Button the correct constraints
+//            ConstraintSet cs = new ConstraintSet();
+//            cs.clone(constraintLayout);
+//
+//            // Constraint left to left
+//            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
+//            //Constraint right to right
+//            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
+//            // Constraint top to bottom of tw
+//            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.TOP, twDisplayTask.getId(), ConstraintSet.BOTTOM, 0);
+//            cs.applyTo(constraintLayout);

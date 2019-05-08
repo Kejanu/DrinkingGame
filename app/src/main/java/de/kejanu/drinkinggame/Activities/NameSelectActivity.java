@@ -52,11 +52,8 @@ public class NameSelectActivity extends AppCompatActivity {
         this.scale = getResources().getDisplayMetrics().density;
         this.activateJokersCb = findViewById(R.id.activate_jokers_cb);
         this.hasCardsAvailableCb = findViewById(R.id.nsa_has_cards_available_cb);
-
-        randomColor = new Random();
-
-        personNumber = 0;
-
+        this.randomColor = new Random();
+        this.personNumber = 0;
         this.personWrapperList = new ArrayList<>();
 
         this.addPersonBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +64,6 @@ public class NameSelectActivity extends AppCompatActivity {
                 addEdittextWithSpinnerToLayout(pWrapper);
 
                 personWrapperList.add(pWrapper);
-                //displayPersonOnActivity(pWrapper);
             }
         });
 
@@ -93,8 +89,8 @@ public class NameSelectActivity extends AppCompatActivity {
             intent.putExtra(getResources().getString(R.string.jokers_checked), false);
         }
 
-        String intentKey = getResources().getString(R.string.selected_person_list);
-        intent.putParcelableArrayListExtra(intentKey, createParcelableArrayListExtra());
+        intent.putExtra(getResources().getString(R.string.cards_checked), hasCardsAvailableCb.isChecked());
+        intent.putParcelableArrayListExtra(getResources().getString(R.string.selected_person_list), createParcelableArrayListExtra());
         return intent;
     }
 
@@ -143,7 +139,7 @@ public class NameSelectActivity extends AppCompatActivity {
 
              @Override
              public void onNothingSelected(AdapterView<?> parent) {
-                 Log.e("Spinner", "Something is wrong");
+                 Log.e("NameSelectActivity", "Spinner: OnNothingSelected Triggered");
              }
         });
 

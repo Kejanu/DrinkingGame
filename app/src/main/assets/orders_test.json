@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": "{name0} macht nix, während {name1} {n0g0} dreckige Worte ins Ohr flüstert",
+    "text": "{name0} macht nix, während {name1} {ihm0} dreckige Worte ins Ohr flüstert",
     "multiOrder": false,
     "requiredNames": 2,
     "secondTextArray": [],

@@ -3,7 +3,6 @@ package de.kejanu.drinkinggame.Activities;
 import android.graphics.Color;
 import android.os.SystemClock;
 import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,26 +17,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Random;
 
 import de.kejanu.drinkinggame.Game;
-import de.kejanu.drinkinggame.Gender;
+import de.kejanu.drinkinggame.GameHelper;
 import de.kejanu.drinkinggame.Joker;
 import de.kejanu.drinkinggame.Order;
 import de.kejanu.drinkinggame.Person;
 import de.kejanu.drinkinggame.R;
 import de.kejanu.drinkinggame.Butler;
 import de.kejanu.drinkinggame.Rule;
+import de.kejanu.drinkinggame.RuleHelper;
 import de.kejanu.drinkinggame.Task;
-import de.kejanu.drinkinggame.TaskType;
+import de.kejanu.drinkinggame.TaskHelper;
 import de.kejanu.drinkinggame.Testing.JokerDialogFragment;
 
 public class GameActivity extends AppCompatActivity implements JokerDialogFragment.JokerDialogListener {
@@ -46,13 +44,6 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
     String ruleBgColor = "#0c69ff";
     String orderBgColor = "#0da300";
     String gameBgColor = "#ddf925";
-
-    // Gender Stuff
-    // {n0g0} => name0 + genderStuff0
-    String[] genderTextsMale = {"ihm", "seine"};
-    String[] genderTextsFemale = {"ihr", "ihre"};
-
-    // {seine0}
 
     float scale;
 
@@ -82,53 +73,50 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
         twDisplayTask = findViewById(R.id.tw_display_task);
         twDisplayTask.setTextColor(Color.parseColor("#000000"));
         constraintLayout = findViewById(R.id.game_activity_layout);
         btnDisplayJokers = findViewById(R.id.btn_joker_ingame);
         btnDisplayRules = findViewById(R.id.btn_rules_ingame);
         scale = getResources().getDisplayMetrics().density;
+        displayGameRulesBtn = findViewById(R.id.btn_display_game_rules);
 
         if (!getIntent().getBooleanExtra(getResources().getString(R.string.jokers_checked), true)) {
             btnDisplayJokers.setVisibility(View.INVISIBLE);
         }
-
-
-//        new Butler(this).addToActiveRules(this.activeRules);
-
-        // Buttons
-
-
-        createOnClickListenersForButtons();
+        createDisplayJokersOnClickListener();
 
         this.pList = getIntent().getParcelableArrayListExtra(getResources().getString(R.string.selected_person_list));
 
-        //new Butler(this).logList(this.pList);
-
-//        if (!fillListsFromSource("orders.json", "games.json", "rules.json")) {
-//            this.twDisplayTask.setText(getResources().getString(R.string.error_reading_json));
-//            return;
-//        }
-
-        if (!fillListsFromSourceTest("games_test.json")) {
+        if (!fillListsFromSource("games_test.json", "orders_test.json", "rules.json")) {
             this.twDisplayTask.setText(getResources().getString(R.string.error_reading_json));
             return;
         }
 
-        removeTasksWhichNeedMoreNames();
-        setRandomLifeSpanForRules();
-        populateTasksWithNames();
+        RuleHelper ruleHelper = new RuleHelper(getApplicationContext());
+        ruleHelper.setDisplayRuleListener(btnDisplayRules, ruleList.isEmpty(), constraintLayout, activeRules);
+        ruleHelper.setRandomLifeSpanForRules(ruleList);
 
+        if (!getIntent().getBooleanExtra(getResources().getString(R.string.cards_checked), false)) {
+            GameHelper gameHelper = new GameHelper();
+            gameHelper.removeCardGames(this.gameList);
+        }
+
+        TaskHelper taskHelper = new TaskHelper();
         this.taskList.addAll(this.orderList);
         this.taskList.addAll(this.ruleList);
         this.taskList.addAll(this.gameList);
 
-        //logListSizes();
+        taskHelper.removeTasksWhichNeedMoreNames(taskList, pList.size());
+        taskHelper.populateTasksWithNames(taskList, pList);
 
         Collections.shuffle(this.taskList);
 
+        // Create artifical input lag, so you can't skip tasks accidentally
+        // The listener runs the next Task
         setLayoutOnClickListener();
+
+        // Run inital Task
         runNextTask();
 
         Log.i("Initialization", "Init completed");
@@ -181,7 +169,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         return (int) (i * scale + 0.5f);
     }
 
-    private void createOnClickListenersForButtons() {
+    private void createDisplayJokersOnClickListener() {
         this.btnDisplayJokers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,176 +222,35 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                 popupWindow.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
             }
         });
-
-
-        this.btnDisplayRules.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (activeRules.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Es gibt keine aktiven Regeln", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = layoutInflater.inflate(R.layout.display_rules_popup, constraintLayout, false);
-
-                LinearLayout llInPopup = popupView.findViewById(R.id.ll_popup_rules);
-
-                for (Rule activeRule : activeRules) {
-                    TextView tw = new TextView(getApplicationContext());
-                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-                    lp.setMargins(scaledToDP(5), scaledToDP(5), scaledToDP(5), scaledToDP(5));
-                    tw.setLayoutParams(lp);
-                    tw.setPadding(scaledToDP(5),scaledToDP(5), scaledToDP(5), scaledToDP(5));
-                    tw.setText(activeRule.getStartText());
-                    tw.setTextSize(scaledToDP(8));
-                    tw.setBackgroundColor(Color.parseColor("#ffffff"));
-                    tw.setTextColor(Color.parseColor("#000000"));
-                    llInPopup.addView(tw);
-                }
-
-                PopupWindow pw = new PopupWindow(popupView, ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT, true);
-                pw.setTouchable(true);
-
-                pw.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
-
-            }
-        });
     }
 
-    private String returnGenderTextsReplaced(Person p, String text, int position) {
-        // {n0g0} => name0 + genderStuff0
 
-        HashMap<String, String> genderMap = new HashMap<>();
-        genderMap.put("ihm", "ihr");
-        genderMap.put("seine", "ihre");
-
-//        Gender gender = p.getGender() == Gender.MALE ? this.genderTextsMale : this.genderTextsFemale;
-//        for (int i = 0; i < genderArr.length; ++i) {
-
-            for (Map.Entry<String, String> entry : genderMap.entrySet()) {
-                String toReplace = "{" + entry.getKey() + position + "}";
-
-                if (text.contains(toReplace)) {
-                    text = text.replace(toReplace, p.getGender() == Gender.MALE ? entry.getKey() : entry.getValue());
-                }
-            }
-
-
-//            text = text.replace("{n" + position + "g" + i + "}", genderArr[i]);
-//        }
-        return text;
-    }
-
-    private void populateTasksWithNames() {
-        for (Order order : this.orderList) {
-            for (int i = 0; i < order.getRequiredNames(); ++i) {
-                order.setText(order.getText().replace("{name" + i + "}", this.pList.get(i).getName()));
-
-                if (order.isNeedsGenderCheck()) {
-                    order.setText(returnGenderTextsReplaced(this.pList.get(i), order.getText(), i));
-                }
-
-                if (order.getSecondTextArray() != null) {
-                    for (int j = 0; j < order.getSecondTextArray().length; ++j) {
-                        order.getSecondTextArray()[j] = order.getSecondTextArray()[j].replace("{name" + i + "}", this.pList.get(i).getName());
-                        if (order.isNeedsGenderCheck()) {
-                            order.getSecondTextArray()[j] = returnGenderTextsReplaced(this.pList.get(i), order.getSecondTextArray()[j], i);
-                        }
-                    }
-                }
-            }
-            Collections.shuffle(this.pList);
-        }
-
-        for (Rule rule : this.ruleList) {
-            for (int i = 0; i < rule.getRequiredNames(); ++i) {
-                rule.setStartText(rule.getStartText().replace("{name" + i + "}", this.pList.get(i).getName()));
-                rule.setEndText(rule.getEndText().replace("{name" + i + "}", this.pList.get(i).getName()));
-
-                if (rule.isNeedsGenderCheck()) {
-                    rule.setStartText(returnGenderTextsReplaced(this.pList.get(i), rule.getStartText(), i));
-                    rule.setEndText(returnGenderTextsReplaced(this.pList.get(i), rule.getEndText(), i));
-                }
-            }
-            Collections.shuffle(this.pList);
-        }
-
-        for (Game game : this.gameList) {
-            for (int i = 0; i < game.getRequiredNames(); ++i) {
-                game.setText(game.getText().replace("{name" + i + "}", this.pList.get(i).getName()));
-                if (game.isNeedsGenderCheck()) {
-                    game.setText(returnGenderTextsReplaced(this.pList.get(i), game.getText(), i));
-                }
-            }
-            Collections.shuffle(this.pList);
-        }
-    }
-
-    private void setRandomLifeSpanForRules() {
-        Random r = new Random();
-        int lb = 10;
-        int up = 15;
-
-        for (Rule rule : this.ruleList) {
-            rule.setLifeSpan(r.nextInt(up - lb) + lb);
-        }
-    }
-
-    private void removeTasksWhichNeedMoreNames() {
-        for (Iterator<Order> it = this.orderList.iterator(); it.hasNext();) {
-            if (it.next().getRequiredNames() > this.pList.size()) {
-                it.remove();
-            }
-        }
-
-        for (Iterator<Rule> it = this.ruleList.iterator(); it.hasNext();) {
-            if (it.next().getRequiredNames() > this.pList.size()) {
-                it.remove();
-            }
-        }
-
-        for (Iterator<Game> it = this.gameList.iterator(); it.hasNext();) {
-            if (it.next().getRequiredNames() > this.pList.size()) {
-                it.remove();
-            }
-        }
-    }
-
-    private boolean fillListsFromSourceTest(String... source) {
-        Gson gson = new Gson();
-        Butler readJSONHelper = new Butler(this);
-
-        for (String s : source) {
-            if (s.contains("game")) {
-                Type gameListType = new TypeToken<ArrayList<Game>>(){}.getType();
-                this.gameList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), gameListType);
-            }
-        }
-
-        return true;
-    }
 
     private boolean fillListsFromSource(String... source) {
         Gson gson = new Gson();
         Butler readJSONHelper = new Butler(this);
 
-        Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
-        this.orderList = gson.fromJson(readJSONHelper.loadJSONFromAsset(source[0]), orderListType);
-//        Log.e("ORDERLIST", this.orderList.size() + "");
-//        Log.e("PERSONLIST", this.pList.size() + "");
+        try {
+            for (String s : source) {
+                if (s.contains("game")) {
+                    Type gameListType = new TypeToken<ArrayList<Game>>(){}.getType();
+                    this.gameList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), gameListType);
+                }
 
-        Type gameListType = new TypeToken<ArrayList<Game>>(){}.getType();
-        this.gameList = gson.fromJson(readJSONHelper.loadJSONFromAsset(source[1]), gameListType);
+                if (s.contains("rules")) {
+                    Type ruleListType = new TypeToken<ArrayList<Rule>>(){}.getType();
+                    this.ruleList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), ruleListType);
+                }
 
-        Type ruleListType = new TypeToken<ArrayList<Rule>>(){}.getType();
-        this.ruleList = gson.fromJson(readJSONHelper.loadJSONFromAsset(source[2]), ruleListType);
-
-        if (this.orderList == null || this.gameList == null || this.ruleList == null) {
+//                if (s.contains("order")) {
+//                    Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
+//                    this.orderList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), orderListType);
+//                }
+            }
+        }
+        catch (JsonParseException jpe) {
             return false;
         }
-
         return true;
     }
 
@@ -417,7 +264,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         if (currentTask == null)
             return false;
 
-        if (currentTask.getType() ==  TaskType.ORDER && ((Order) currentTask).isMultiOrder())
+        if (currentTask instanceof Order && ((Order) currentTask).isMultiOrder())
             return false;
 
         for (int i = 0; i < this.activeRules.size(); i++) {
@@ -460,7 +307,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
     private void executeRule(Task currentTask) {
         Rule currentRule = (Rule) currentTask;
-        displayNextText(currentRule.getStartText());
+        displayNextText(currentRule.getText());
 
         this.constraintLayout.setBackgroundColor(Color.parseColor(ruleBgColor));
         this.activeRules.add(currentRule);
@@ -472,31 +319,13 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
         if (currentGame.getRulesText() != null) {
             // Display Rules in Layout
-            displayGameRulesBtn = (Button) LayoutInflater.from(getApplicationContext()).inflate(R.layout.display_game_rules_btn, constraintLayout, false);
+            displayGameRulesBtn.setVisibility(View.VISIBLE);
             displayGameRulesBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(getApplicationContext(), "Display Rules clicked", Toast.LENGTH_SHORT).show();
                     displayGameRulesPopUp(currentGame.getRulesText());
-
                 }
             });
-
-            constraintLayout.addView(displayGameRulesBtn);
-
-            // Give Button the correct constraints
-            ConstraintSet cs = new ConstraintSet();
-            cs.clone(constraintLayout);
-
-            // Constraint left to left
-            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
-            //Constraint right to right
-            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
-            // Constraint top to bottom of tw
-            cs.connect(displayGameRulesBtn.getId(), ConstraintSet.TOP, twDisplayTask.getId(), ConstraintSet.BOTTOM, 0);
-            cs.applyTo(constraintLayout);
-
-            // Remove and readd or make invisible and visible
         }
 
         displayNextText(currentGame.getText());
@@ -511,11 +340,11 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         popupWindow.setTouchable(true);
 
         popupWindow.showAtLocation(constraintLayout, Gravity.CENTER, 0, 0);
-        popupWindow.dismiss();
-
     }
 
     private void runNextTask() {
+        displayGameRulesBtn.setVisibility(View.INVISIBLE);
+
         if (this.taskList.size() == 0) {
             endGame();
             return;
@@ -526,18 +355,18 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
         currentTask = this.taskList.get(0);
 
-        if (currentTask.getType() == TaskType.ORDER) {
+        if (currentTask instanceof Order) {
             if (executeOrder(currentTask))
                 return;
         }
-        else if (currentTask.getType() == TaskType.RULE){
+        else if (currentTask instanceof Rule){
             executeRule(currentTask);
         }
-        else if (currentTask.getType() == TaskType.GAME) {
+        else if (currentTask instanceof Game) {
             executeGame(currentTask);
         }
         else {
-            Log.e("Tasklog", "Something is going horribly wrong.");
+            Log.e("GameActivity", "CurrentTask is neither Order nor Rule nor Game");
         }
 
         this.taskList.remove(0);

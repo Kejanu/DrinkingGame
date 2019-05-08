@@ -88,6 +88,7 @@ public class JokerSelectActivity extends AppCompatActivity {
 
         Intent intent = new Intent(JokerSelectActivity.this, GameActivity.class);
         String intentKey = getResources().getString(R.string.selected_person_list);
+        intent.putExtra(getResources().getString(R.string.cards_checked), getIntent().getBooleanExtra(getResources().getString(R.string.cards_checked), false));
         intent.putParcelableArrayListExtra(intentKey, this.pList);
         startActivity(intent);
 

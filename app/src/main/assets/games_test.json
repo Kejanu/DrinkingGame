@@ -1,9 +1,10 @@
 [
   {
     "id": 1,
-    "requiredNames": 0,
+    "requiredNames": 1,
     "text": "Eine Runde gute Straße böse Straße. {name0} verteilt. Im Uhrzeigersinn beginnen",
-    "rulesText" : "Gute Straße Böse Straße - Spielregen\n\n 1.Ein Spieler bekommt die Spielkarten\n Lumens persuadere in cubiculum!\nVae, varius eleates! Mons varius usus est. Liberi de teres pes, amor ratione!Urias persuadere, tanquam salvus hilotae.Hercle, hydra fortis!, regius cursus!Ubi est noster lapsus? A falsis, pes flavum galatae.Crescere callide ducunt ad nobilis coordinatae.Bubo undas, tanquam barbatus calceus. Secundus, audax elevatuss superbe examinare de dexter, brevis lanista.Spatii, rumor, et bursa.Racanas ridetis, tanquam alter armarium. Hippotoxotas messis, tanquam placidus tus. Rumor bassus luba est."
+    "rulesText" : "Gute Straße Böse Straße - Spielregen\n\n1. Ein Spieler bekommt die Spielkarten, dieser ist nun der Dealer\n\n2. Der Dealer verteilt an jede Person eine verdeckte Karte und fragt dabei, ob rot oder schwarz. Die Spieler, die eine Karte bekommen müssen raten, ob sie eine schwarze (Kreuz, Pik) oder rote (Herz, Karo) Karte bekommen.\n\n3. Die ausgeteilte Karte wird umgedreht und es wird nachgeguckt, ob richtig geraten wurde. Ist dies der Fall, wird nicht getrunken. Ansonsten einen Schluck trinken.",
+    "needsCards" : true
   },
   {
     "id": 2,

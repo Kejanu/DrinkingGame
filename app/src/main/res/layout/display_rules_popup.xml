@@ -25,7 +25,7 @@
     <ScrollView
         android:id="@+id/sw_popup_rules"
         android:layout_width="500dp"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="8dp"

@@ -11,6 +11,7 @@
         android:layout_width="600dp"
         android:layout_height="350dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="#696969"
@@ -23,14 +24,13 @@
         <TextView
             android:id="@+id/tw_ingame_game_rules"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:padding="8dp"
             android:textSize="24sp"
-            android:text="Here we display game rules"
 
             android:background="#000000"
             android:textColor="#ffffff" />
