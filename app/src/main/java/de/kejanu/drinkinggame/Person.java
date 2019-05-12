@@ -2,9 +2,8 @@ package de.kejanu.drinkinggame;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,15 @@ public class Person implements Parcelable {
     private String name;
     private Gender gender;
     private List<Joker> jokerList;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public Person(String name, Gender gender) {
+        this.name = name;
+        this.gender = gender;
+    }
 
     public Person(String name, Gender gender, List<Joker> jokerList) {
         this.name = name;

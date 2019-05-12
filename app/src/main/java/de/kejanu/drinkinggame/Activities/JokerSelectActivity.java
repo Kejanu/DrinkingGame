@@ -1,7 +1,7 @@
 package de.kejanu.drinkinggame.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +15,6 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import javax.security.auth.login.LoginException;
 
 import de.kejanu.drinkinggame.Joker;
 import de.kejanu.drinkinggame.JokerAdapter;
