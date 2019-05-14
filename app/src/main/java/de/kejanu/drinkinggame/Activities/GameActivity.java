@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
     String gameBgColor = "#ddf925";
 
     float scale;
+    private int difficulty;
 
     ArrayList<Person> pList;
 
@@ -80,6 +82,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
         btnDisplayRules = findViewById(R.id.btn_rules_ingame);
         scale = getResources().getDisplayMetrics().density;
         displayGameRulesBtn = findViewById(R.id.btn_display_game_rules);
+        difficulty = 10;
 
         if (!getIntent().getBooleanExtra(getResources().getString(R.string.jokers_checked), true)) {
             btnDisplayJokers.setVisibility(View.INVISIBLE);
@@ -88,7 +91,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
         this.pList = getIntent().getParcelableArrayListExtra(getResources().getString(R.string.selected_person_list));
 
-        if (!fillListsFromSource("games_test.json", "orders_test.json", "rules.json")) {
+        if (!fillListsFromSource("orders_test.json")) {
             this.twDisplayTask.setText(getResources().getString(R.string.error_reading_json));
             return;
         }
@@ -109,6 +112,7 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
 
         taskHelper.removeTasksWhichNeedMoreNames(taskList, pList.size());
         taskHelper.populateTasksWithNames(taskList, pList);
+        taskHelper.populateDrinkingAmount(taskList, difficulty);
 
         Collections.shuffle(this.taskList);
 
@@ -242,10 +246,10 @@ public class GameActivity extends AppCompatActivity implements JokerDialogFragme
                     this.ruleList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), ruleListType);
                 }
 
-//                if (s.contains("order")) {
-//                    Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
-//                    this.orderList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), orderListType);
-//                }
+                if (s.contains("order")) {
+                    Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
+                    this.orderList = gson.fromJson(readJSONHelper.loadJSONFromAsset(s), orderListType);
+                }
             }
         }
         catch (JsonParseException jpe) {

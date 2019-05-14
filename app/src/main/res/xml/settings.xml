@@ -6,6 +6,12 @@
         app:key="notifications"
         app:title="Enable message notifications"/>
 
+    <SwitchPreferenceCompat
+        app:key="de.kejanu.drinkinggame.custom_tasks"
+        app:title="Enable custom tasks"
+        app:summary="Adds your custom tasks to the Game"
+        />
+
     <Preference
         app:key="feedback"
         app:title="Send feedback"

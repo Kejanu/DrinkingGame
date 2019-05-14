@@ -9,6 +9,20 @@ import java.util.Random;
 
 public class TaskHelper {
 
+    public void populateDrinkingAmount(ArrayList<Task> taskList, int difficulty) {
+        for (Task t  : taskList) {
+
+            t.setText(t.getText().replace("[0]", Integer.toString(difficulty)));
+
+            if (t instanceof Order) {
+                Order o = (Order) t;
+                if (o.isMultiOrder())
+                    for (int i = 0; i < o.getSecondTextArray().length; ++i)
+                        o.getSecondTextArray()[i] = o.getSecondTextArray()[i].replace("[0]", Integer.toString(difficulty));
+            }
+        }
+    }
+
     public void removeTasksWhichNeedMoreNames(ArrayList<Task> taskList, int amount) {
         for (Iterator<Task> it = taskList.iterator(); it.hasNext();) {
             if (it.next().getRequiredNames() > amount) {

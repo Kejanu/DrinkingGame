@@ -29,6 +29,9 @@
             android:label="@string/title_activity_game"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.SettingsActivity"></activity>
+        <activity android:name=".Activities.CategorySelectActivity"></activity>
+        <activity android:name=".Testing.TestingFragments.MainFrgmentHolderActivity"></activity>
     </application>
 
 </manifest>

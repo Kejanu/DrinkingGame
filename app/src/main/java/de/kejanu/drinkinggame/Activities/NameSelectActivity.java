@@ -24,6 +24,7 @@ import de.kejanu.drinkinggame.Gender;
 import de.kejanu.drinkinggame.Person;
 import de.kejanu.drinkinggame.PersonWrapper;
 import de.kejanu.drinkinggame.R;
+import de.kejanu.drinkinggame.Testing.TestingFragments.MainFrgmentHolderActivity;
 
 public class NameSelectActivity extends AppCompatActivity {
 
@@ -71,13 +72,20 @@ public class NameSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(NameSelectActivity.this, SettingsActivity.class);
+                startActivity(intent);
             }
         });
 
         startGameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = createIntent();
+//                Intent intent = createIntent();
+//                startActivity(intent);
+//                Intent intent = new Intent(NameSelectActivity.this, CategorySelectActivity.class);
+//                startActivity(intent);
+
+                Intent intent = new Intent(NameSelectActivity.this, MainFrgmentHolderActivity.class);
                 startActivity(intent);
             }
         });
