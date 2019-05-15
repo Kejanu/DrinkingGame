@@ -1,5 +1,16 @@
 <resources>
-    <string name="app_name">DrinkingGame</string>
+    <!-- General -->
+    <string name="app_name">Easy Drinking</string>
+
+    <!-- Fragment Tags -->
+    <string name="fragment_name_select">NameSelectFragment</string>
+
+    <!-- NameSelectFragment -->
+    <string name="button_continue">Continue</string>
+    <string name="button_new_name">Add</string>
+
+    <!-- MainActivity -->
+
     <string name="name_select">Namensauswahl</string>
     <string name="start_btn">Starten</string>
     <string name="add_btn">Add</string>

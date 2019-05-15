@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import de.kejanu.drinkinggame.Fragments.NameSelectFragment;
 import de.kejanu.drinkinggame.R;
 
 public class MainFrgmentHolderActivity extends AppCompatActivity {
@@ -14,7 +16,7 @@ public class MainFrgmentHolderActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, new FragmentNameSelect())
+                .add(R.id.fragment_container, new NameSelectFragment())
                 .commit();
     }
 }
